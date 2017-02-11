@@ -1,0 +1,1380 @@
+﻿
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+
+<title>Bubble</title>
+
+<script type="text/javascript">
+
+window.addEventListener('load', eventWindowLoaded, false);
+
+function eventWindowLoaded() {
+
+canvasApp();
+
+}
+
+function canvasApp(){
+
+setInterval(cleanupStaleResources, 1000);
+
+var theCanvas = document.getElementById("canvas");
+
+if (!theCanvas || !theCanvas.getContext) {
+
+return;
+
+}
+
+var context = theCanvas.getContext("2d");
+
+if (!context) {
+
+return;
+
+}
+
+
+
+ var CANVAS = {width: 1170, height: 600};
+
+      var NUMBER_OF_RECTANGLES = 50;
+
+      var FALLING = true;
+
+	  var counter=0;
+	  
+	  
+	  context.globalAlpha = 1;
+	 //  var m,n,o,p,r;
+//player ball     		
+
+var a=10;var b=570;var dx=7;var dy=7;
+
+//big ball
+
+var a1=100; var b1=100; var da1=7;var db1=6;
+
+
+
+
+
+
+
+//mediam ball
+
+var a2=600; var b2=500; var da2=6;var db2=8;
+
+var a3=500; var b3=400; var da3=7;var db3=9;
+
+
+
+//smallball
+
+var a4=700; var b4=100; var da4=9;var db4=7;
+
+var a5=890; var b5=100; var da5=8;var db5=9;
+var a6=1140;  var b6=30;
+
+var keyPressList = [];
+
+//context.globalAlpha = 1;
+
+var alpha=0;
+
+var sound=0;
+
+//function start(){context.fillStyle = "rgba(,250 , 250, 0.5)";
+ // context.fillRect(0, 0, 1180, 600);}
+var r=15;  
+
+
+
+ 
+ function checkkeys()
+ {//check keys
+
+if (keyPressList[38]==true){  if(b-dy>15){b=b-dy;} ; //if(a=a6 && b=b6){b6=b6-7;}
+}
+
+if (keyPressList[37]==true) {if(a-dx>15)a=a-dx;
+
+}
+
+if (keyPressList[39]==true) {if(a+dx<1165)a=a+dx;
+
+}
+
+if (keyPressList[40]==true) {if(b+dy<585)b=b+dy
+
+}}
+ 
+ function drawScreen() {
+
+//sound=new Audio("hit.mp3");
+context.globalAlpha = 1;
+context.globalAlpha = alpha;
+alpha+=.01;
+
+
+checkkeys();
+
+context.fillStyle = '#000000';
+
+context.fillRect(0, 0, 1180, 600);
+
+
+
+
+
+ for (i=0; i < allShapes.length; ++i) {
+
+            allShapes[i].draw(context);
+
+          } 
+//diwar 1
+   context.fillStyle = "rgba(0,250 , 250, 0.2)";
+   context.fillRect(236, 100, 20, 500);  
+   
+
+   
+   
+   //   diwar 2
+   context.fillStyle = "rgba(0,250 , 250, 0.2)";
+   context.fillRect(472, 0, 20, 500); 
+
+
+
+ //   diwar 3
+   context.fillStyle = "rgba(0,250 , 250, 0.2)";
+
+context.fillRect(808, 100, 20, 500); 
+
+ //   diwar 4
+   context.fillStyle = "rgba(0,250 , 250, 0.2)";
+
+context.fillRect(944, 0, 20, 500); 
+		 
+
+//   diwar 5
+   context.fillStyle = "rgba(0,250 , 250, 0.2)";
+
+context.fillRect(1020, 200, 200, 20); 
+
+//   diwar 6
+   context.fillStyle = "rgba(0,250 , 250, 0.2)";
+
+context.fillRect(472, 500, 220, 20);
+
+//   diwar 7
+   context.fillStyle = "rgba(0,250 , 250, 0.2)";
+
+context.fillRect(630, 100, 178, 20);
+
+//   diwar 8
+   context.fillStyle = "rgba(250,0 , 0, 0.5)";
+
+context.fillRect(600, 250, 100, 100);		 
+		 
+		 
+		 	  //player ball....... 
+
+    context.beginPath();
+
+    context.arc(a, b,r, 0, 2 * Math.PI, false);
+
+    context.fillStyle = "rgba(256,175 , 0, 0.8)";
+
+    context.fill();
+
+    context.stroke();
+// first page............................
+	
+
+	if(a<12)
+	{   context.fillStyle = "rgba(250,250 , 250, 0.7)";
+  context.fillRect(0, 0, 1180, 600);
+  
+  context.font = '40px _sans';
+context.textBaseline = 'top';
+context.fillText ("You are Awesome...      ", 240,150 );
+context.strokeStyle = '#000000';
+context.beginPath();
+
+context.beginPath();
+context.moveTo(30, 580);
+context.quadraticCurveTo(100,620 , 230, 530);
+context.stroke();
+context.closePath();
+
+
+context.beginPath();
+context.moveTo(1080, 220);
+context.quadraticCurveTo(1050, 70, 1110, 40);
+context.stroke();
+context.closePath();
+
+context.beginPath();
+context.moveTo(540, 260);
+context.quadraticCurveTo(490, 360, 580, 470);
+context.stroke();
+context.closePath();
+
+context.beginPath();
+context.moveTo(540, 260);
+context.quadraticCurveTo(440, 350, 480, 370);
+context.stroke();
+context.closePath();
+
+context.beginPath();
+context.moveTo(720, 260);
+context.quadraticCurveTo(870, 400, 930, 360);
+context.stroke();
+context.closePath();
+
+context.beginPath();
+context.moveTo(720, 260);
+context.quadraticCurveTo(740, 400, 800, 360);
+context.stroke();
+context.closePath();
+
+
+context.beginPath();
+context.moveTo(735, 430);
+context.quadraticCurveTo(610, 400, 650, 360);
+context.stroke();
+context.closePath();
+
+context.fillStyle="black";
+context.font = '30px _sans';
+context.fillText ("The game is simple. You have to guide your bubble to Treasure      ", 380,200 );
+context.fillText ("Be careful of other bubbles and walls... if your bubble touches any of      ", 300,230 );
+context.fillText ("them it will move at starting position..      ", 300,260 );
+context.font = '20px _sans';
+context.fillStyle="red";
+context.fillText ("                 You can pass through this box...", 700,410 );
+context.fillText ("           but that will result reducing movement", 700,430 );
+context.fillText ("speed and increase bubble size i.e hard to control", 700,450 );
+context.fillStyle="blue";
+context.fillText ("Use arrow keys to control ", 100,350 );
+context.fillText ("the bubble.. ", 100,370 );
+context.font = '20px _sans';
+context.fillStyle="#ff7500";
+context.fillText ("This is your bubble...    ", 200,500 );
+context.fillStyle="black";
+context.fillText ("     Press 'spacebar' to Start the game     ", 800,550 );
+   //var s10=da4;var t10=db4;da4=da5;db4=db5;da5=s10;db5=t10; 
+da1=da2=da3=da4=da5=0;db1=db2=db3=db4=db5=0;dx=0;dy=0;
+
+if (keyPressList[32]==true)
+   {
+   
+   a=30;b=580;dx=7;dy=7;
+   da1=7; db1=6;
+
+//mediam ball
+
+ //a2=300;  b2=500; 
+ da2=-6; db2=-8;
+
+//a3=500;  b3=300; 
+ da3=7; db3=9;
+
+
+
+//smallball
+
+//a4=700;  b4=100; 
+ da4=9; db4=7;
+ //a5=890;  b5=100; 
+ da5=-8; db5=-9;
+
+   
+  }
+  }
+  
+  
+
+				//big ball
+
+	context.beginPath();
+
+    context.arc(a1,b1,44, 0, 2 * Math.PI, false);
+
+   // context.fillStyle = "red";
+
+   context.fillStyle = "rgba(256, 0, 0, 0.5)";
+
+    context.fill();
+
+    context.stroke();
+
+	if (a1+37 >= 1180 || a1-37 <= 0) da1 *= -1;a1=a1-da1;
+
+    if (b1+37 >= 600 || b1-37 <= 0) db1 *= -1; b1=b1-db1;
+
+	
+
+	//mediam ball 1
+
+	context.beginPath();
+
+    context.arc(a2,b2,30, 0, 2 * Math.PI, false);
+
+    context.fillStyle = "rgba(0, 256, 0, 0.3)";
+
+    context.fill();
+
+    context.stroke();
+
+	if (a2+32 >= 1180 || a2-32 <= 0) da2 *= -1;a2=a2-da2;
+
+    if (b2+32 >= 600 || b2-32 <= 0) db2 *= -1; b2=b2-db2;
+
+	
+
+	
+
+	
+
+	//mediam ball 2
+
+	context.beginPath();
+
+    context.arc(a3,b3,30, 0, 2 * Math.PI, false);
+
+    context.fillStyle = "rgba(256, 256, 0, 0.5)";
+
+    context.fill();
+
+    context.stroke();
+
+	if (a3+32 >= 1180 || a3-32 <= 0) da3 *= -1;a3=a3-da3;
+
+    if (b3+32 >= 600 || b3-32 <= 0) db3 *= -1; b3=b3-db3;
+
+	
+
+	//small ball 1
+
+	context.beginPath();
+
+    context.arc(a4,b4,20, 0, 2 * Math.PI, false);
+
+   context.fillStyle = "rgba(250, 0, 150, 0.5)";
+
+    context.fill();
+
+    context.stroke();
+
+	if (a4+28 >= 1180 || a4-28 <= 0) da4 *= -1;a4=a4-da4;
+
+    if (b4+28 >= 600 || b4-28 <= 0) db4 *= -1; b4=b4-db4;
+
+	
+
+	//small ball 2
+
+	context.beginPath();
+
+    context.arc(a5,b5,20, 0, 2 * Math.PI, false);
+
+    context.fillStyle = "rgba(0,0 , 250, 0.5)";
+
+    context.fill();
+
+    context.stroke();
+
+	if (a5+28 >= 1180 || a5-28 <= 0) da5 *= -1;a5=a5-da5;
+
+    if (b5+28 >= 600 || b5-28 <= 0) db5 *= -1; b5=b5-db5;
+
+	
+	//treasure
+	context.beginPath();
+
+    context.arc(a6,b6,20, 0, 2 * Math.PI, false);
+
+    context.fillStyle = "rgba(256, 100, 250, 0.5)";
+
+    context.fill();
+
+    context.stroke();
+	
+	
+	//diwar 8
+  if((a+17>600 && a-17<700) && (b+17>250 && b-17<350))
+  {   context.fillStyle = "rgba(250,0 , 0, 0.2)";
+  context.fillRect(0, 0, 1180, 600);
+  
+  context.font = '40px _sans';
+context.textBaseline = 'top';
+
+   r=25;
+   
+   dx=3;dy=3;
+
+ }
+ 
+ 
+ 
+
+                         ///  with red ball
+  
+ //red & green
+ var m1=a1-a2;
+var  n1=b1-b2;
+var  o1=m1*m1;
+ var p1=n1*n1;
+ var r1=o1+p1;
+  
+if (r1<=3000)
+{  
+   var s1=da1;var t1=db1;da1=da2;db1=db2;da2=s1;db2=t1; 
+
+  }
+  
+  //red & yellow
+ var m2=a1-a3;
+var  n2=b1-b3;
+var  o2=m2*m2;
+ var p2=n2*n2;
+ var r2=o2+p2;
+  
+if (r2<=3000)
+{ var s2=da1;var t2=db1;da1=da3;db1=db3;da3=s2;db3=t2;
+  }
+  
+  
+  //red & pink
+ var m3=a1-a4;
+var  n3=b1-b4;
+var  o3=m3*m3;
+ var p3=n3*n3;
+ var r3=o3+p3;
+  
+if (r3<=2500)
+//( (a1<=a2+37 && a1>=a2-37) && (b1>=b2-37 && b1<=b2+37 ) )
+{ var s3=da1;var t3=db1;da1=da4;db1=db4;da4=s3;db4=t3;
+  }
+  
+  //red & blue
+ var m4=a1-a5;
+var  n4=b1-b5;
+var  o4=m4*m4;
+ var p4=n4*n4;
+ var r4=o4+p4;
+  
+if (r4<=2500)
+{
+    var s4 = da1; var t4 = db1; da1 = da5; db1 = db5; da5 = s4; db5 = t4;
+  }
+	
+     
+                           ///   green ball collision
+// green & yellow
+ var m5=a2-a3;
+var  n5=b2-b3;
+var  o5=m5*m5;
+ var p5=n5*n5;
+ var r5=o5+p5;
+  
+if (r5<=2500)
+{  
+   var s5=da2;var t5=db2;da2=da3;db2=db3;da3=s5;db3=t5; 
+
+  }
+				 
+		// green & pink
+ var m6=a2-a4;
+var  n6=b2-b4;
+var  o6=m6*m6;
+ var p6=n6*n6;
+ var r6=o6+p6;
+  
+if (r6<=2400)
+{  
+   var s6=da2;var t6=db2;da2=da4;db2=db4;da4=s6;db4=t6; 
+
+  }					 
+// green & purpal
+ var m7=a2-a5;
+var  n7=b2-b5;
+var  o7=m7*m7;
+ var p7=n7*n7;
+ var r7=o7+p7;
+  
+if (r7<=2400)
+{  
+   var s7=da2;var t7=db2;da2=da5;db2=db5;da5=s7;db5=t7; 
+
+  }
+  
+  
+  
+  //yellow collision
+  
+  
+  //  yellow & pink
+ var m8=a3-a4;
+var  n8=b3-b4;
+var  o8=m8*m8;
+ var p8=n8*n8;
+ var r8=o8+p8;
+  
+if (r8<=2200)
+{  
+   var s8=da3;var t8=db3;da3=da4;db3=db4;da4=s8;db4=t8; 
+
+  }
+  
+   //  yellow & blue
+ var m9=a3-a5;
+var  n9=b3-b5;
+var  o9=m9*m9;
+ var p9=n9*n9;
+ var r9=o9+p9;
+  
+if (r9<=2200)
+{  
+   var s9=da3;var t9=db3;da3=da5;db3=db5;da5=s9;db5=t9; 
+
+  }
+   //   pink  &&&&&&&  blue
+ var m10=a4-a5;
+var  n10=b4-b5;
+var  o10=m10*m10;
+ var p10=n10*n10;
+ var r10=o10+p10;
+  
+if (r10<=2000)
+{  
+   var s10=da4;var t10=db4;da4=da5;db4=db5;da5=s10;db5=t10; 
+
+  }
+  
+  
+  
+  //   collision with player
+  
+    //   player & red
+ var m11=a-a1;
+var  n11=b-b1;
+var  o11=m11*m11;
+ var p11=n11*n11;
+ var r11=o11+p11;
+  
+if (r11<=3500)
+{   context.fillStyle = "rgba(250,0 , 0, 0.2)";
+  context.fillRect(0, 0, 1180, 600);
+  context.fillStyle="red";
+  context.font = '40px _sans';
+context.textBaseline = 'top';
+context.fillText ("Oops.... impact between you and red bubble..      ", 280,200 );
+context.font = '20px _sans';
+context.fillText ("     Press 'spacebar' to restart the game     ", 430,300 );
+ 
+ 
+dx=0;dy=0;
+ da1=da2=da3=da4=da5=0;db1=db2=db3=db4=db5=0;
+
+if (keyPressList[32]==true)
+   {
+   
+   dx=7;dy=7; a=30;b=580;r=15;
+ 
+da1=-7; db1=-6;
+
+    //mediam ball
+
+ da2=6; db2=-8;
+
+ da3=-7; db3=9;
+
+
+
+//smallball
+ 
+ da4=-9; db4=7; 
+ da5=8; db5=-9;
+
+ 
+ 
+  a1=Math.floor(Math.random() *1000); b1=Math.floor(Math.random() *600); //mediam ball
+ a2=600;  b2=500; 
+ a3=500;  b3=400; 
+//smallball
+ a4=700;  b4=100; 
+ a5=890;  b5=100; 
+   }
+  }
+  
+  
+      //   player & green
+ var m12=a-a2;
+var  n12=b-b2;
+var  o12=m12*m12;
+ var p12=n12*n12;
+ var r12=o12+p12;
+  
+if (r12<=2200)
+{   context.fillStyle = "rgba(0,250 , 0, 0.2)";
+  context.fillRect(0, 0, 1180, 600);
+  context.fillStyle="green";
+  context.font = '40px _sans';
+context.textBaseline = 'top';
+context.fillText ("Oops.... impact between you and green bubble..      ", 280,200 );
+context.font = '20px _sans';
+context.fillText ("     Press 'spacebar' to restart the game     ", 430,300 );
+da1=da2=da3=da4=da5=0;db1=db2=db3=db4=db5=0;dx=0;dy=0;
+
+if (keyPressList[32]==true)
+   {
+   
+   dx=7;dy=7; a=30;b=580;r=15;
+da1=-7; db1=6;
+
+//mediam ball
+
+ da2=6; db2=8;
+
+//a3=500;  b3=300; 
+ da3=-7; db3=-9;
+
+
+
+//smallball
+
+ da4=9; db4=-7;
+ da5=-8; db5=9;
+ 
+  a1=100; b1=100; //mediam ball
+ a2=600;  b2=500; 
+ a3=500;  b3=400; 
+//smallball
+ a4=700;  b4=100; 
+ a5=890;  b5=100; 
+   
+  }
+  }
+
+  
+  
+      //   player & yellow
+ var m13=a-a3;
+var  n13=b-b3;
+var  o13=m13*m13;
+ var p13=n13*n13;
+ var r13=o13+p13;
+  
+if (r13<=2200)
+  
+
+{   context.fillStyle = "rgba(250,250 , 0, 0.2)";
+  context.fillRect(0, 0, 1180, 600);
+  context.fillStyle="yellow";
+  context.font = '40px _sans';
+context.textBaseline = 'top';
+context.fillText ("Oops.... impact between you and yellow bubble..      ", 280,200 );
+context.font = '20px _sans';
+context.fillText ("     Press 'spacebar' to restart the game     ", 430,300 );
+  
+da1=da2=da3=da4=da5=0;db1=db2=db3=db4=db5=0;dx=0;dy=0;
+
+if (keyPressList[32]==true)
+   {
+   
+   dx=7;dy=7; a=30;b=580;r=15;
+
+da1=-7; db1=6;
+
+//mediam ball
+
+ da2=-6; db2=-8;
+
+ da3=7; db3=9;
+
+
+
+//smallball
+
+ da4=-9; db4=7;
+ da5=8; db5=9;
+ 
+ 
+  a1=100; b1=100; //mediam ball
+ a2=600;  b2=500; 
+ a3=500;  b3=400; 
+//smallball
+ a4=700;  b4=100; 
+ a5=890;  b5=100; 
+   
+  }
+  }
+
+      //   player & pink
+ var m14=a-a4;
+var  n14=b-b4;
+var  o14=m14*m14;
+ var p14=n14*n14;
+ var r14=o14+p14;
+  
+if (r14<=1000)
+  {   context.fillStyle = "rgba(250,0 , 160, 0.2)";
+  context.fillRect(0, 0, 1180, 600);
+  context.fillStyle="pink";
+  context.font = '40px _sans';
+context.textBaseline = 'top';
+context.fillText ("Oops.... impact between you and pink bubble..      ", 280,200 );
+context.font = '20px _sans';
+context.fillText ("     Press 'spacebar' to restart the game     ", 430,300 );
+
+da1=da2=da3=da4=da5=0;db1=db2=db3=db4=db5=0;dx=0;dy=0;
+
+if (keyPressList[32]==true)
+   {
+   
+   dx=7;dy=7; a=30;b=580;r=15;
+da1=7; db1=6;
+
+//mediam ball
+
+ da2=-6; db2=-8;
+
+ da3=-7; db3=9;
+
+
+
+//smallball
+
+ da4=9; db4=7;
+ da5=-8; db5=-9;
+ 
+ 
+  a1=100; b1=100; //mediam ball
+ a2=600;  b2=500; 
+ a3=500;  b3=400; 
+//smallball
+ a4=700;  b4=100; 
+ a5=890;  b5=100; 
+   
+  }
+  }
+
+  
+  
+      //   player & blue
+ var m15=a-a5;
+var  n15=b-b5;
+var  o15=m15*m15;
+ var p15=n15*n15;
+ var r15=o15+p15;
+  
+if (r15<=1400)
+  
+ {   context.fillStyle = "rgba(0,0 , 250, 0.2)";
+  context.fillRect(0, 0, 1180, 600);
+  context.fillStyle="blue";
+  context.font = '40px _sans';
+context.textBaseline = 'top';
+context.fillText ("Oops.... impact between you and blue bubble..      ", 280,200 );
+context.font = '20px _sans';
+context.fillText ("     Press 'spacebar' to restart the game     ", 430,300 );
+da1=da2=da3=da4=da5=0;db1=db2=db3=db4=db5=0;dx=0;dy=0;
+
+if (keyPressList[32]==true)
+   {
+   
+   dx=7;dy=7; a=30;b=580;r=15;
+da1=-7; db1=-6;
+
+//mediam ball
+
+ da2=-6; db2=8;
+
+ da3=-7; db3=-9;
+
+
+
+//smallball
+
+ da4=-9; db4=-7;
+ da5=8; db5=9;
+ 
+ 
+  a1=100; b1=100; //mediam ball
+ a2=600;  b2=500; 
+ a3=500;  b3=400; 
+//smallball
+ a4=700;  b4=100; 
+ a5=890;  b5=100; 
+   
+  }
+  }
+
+  //diwar 1
+  if((a+17>236 && a-17<256) && b>100)
+  {   context.fillStyle = "rgba(0,250 , 250, 0.2)";
+  context.fillRect(0, 0, 1180, 600);
+  context.fillStyle = "rgba(0,250 , 250, 1)";
+  context.font = '40px _sans';
+context.textBaseline = 'top';
+context.fillText ("Oops....  you collied with wall..      ", 280,200 );
+context.font = '20px _sans';
+context.fillText ("     Press 'spacebar' to restart the game     ", 430,300 );
+da1=da2=da3=da4=da5=0;db1=db2=db3=db4=db5=0;dx=0;dy=0;
+
+if (keyPressList[32]==true)
+   {
+   
+   dx=7;dy=7; a=30;b=580;r=15;
+da1=-7; db1=-6;
+
+//mediam ball
+
+ 
+ da2=6; db2=8;
+
+ da3=-7; db3=-9;
+
+
+
+//smallball
+
+ da4=-9; db4=-7;
+ da5=8; db5=9;
+ 
+  a1=100; b1=100; 
+  //mediam ball
+ a2=600;  b2=500; 
+ a3=500;  b3=400; 
+//smallball
+ a4=700;  b4=100; 
+ a5=890;  b5=100; 
+   
+  }
+  }
+  // diwar 2
+ if((a+17>472 && a-17<492) && b<500)
+   {   context.fillStyle = "rgba(0,250 , 250, 0.2)";
+  context.fillRect(0, 0, 1180, 600);
+  context.font = '40px _sans';
+context.textBaseline = 'top';
+context.fillText ("Oops....  you collied with wall..      ", 280,200 );
+context.font = '20px _sans';
+context.fillText ("     Press 'spacebar' to restart the game     ", 430,300 );
+da1=da2=da3=da4=da5=0;db1=db2=db3=db4=db5=0;dx=0;dy=0;
+
+if (keyPressList[32]==true)
+   {
+   
+   dx=7;dy=7; a=30;b=580;r=15;
+da1=-7; db1=-6;
+
+//mediam ball
+
+ da2=6; db2=8;
+
+
+ da3=-7; db3=-9;
+
+
+
+//smallball
+
+
+ da4=-9; db4=-7;
+ 
+ da5=8; db5=9;
+ 
+  a1=100; b1=100; //mediam ball
+ a2=600;  b2=500; 
+ a3=500;  b3=400; 
+//smallball
+ a4=700;  b4=100; 
+ a5=890;  b5=100; 
+   
+  }
+  }
+ // diwar 3
+ if((a+17>808 && a-17<828) && b>100)
+   {   context.fillStyle = "rgba(0,250 , 250, 0.2)";
+  context.fillRect(0, 0, 1180, 600);
+  
+  context.font = '40px _sans';
+context.textBaseline = 'top';
+context.fillText ("Oops....  you collied with wall..      ", 280,200 );
+context.font = '20px _sans';
+context.fillText ("     Press 'spacebar' to restart the game     ", 430,300 );
+
+da1=da2=da3=da4=da5=0;db1=db2=db3=db4=db5=0;dx=0;dy=0;
+
+if (keyPressList[32]==true)
+   {
+   
+   dx=7;dy=7; a=30;b=580;r=15;
+
+da1=-7; db1=-6;
+
+//mediam ball
+
+ 
+ da2=6; db2=8;
+
+
+ da3=-7; db3=-9;
+
+
+
+//smallball
+
+ 
+ da4=-9; db4=-7;
+
+ da5=8; db5=9;
+   
+  a1=100; b1=100; //mediam ball
+ a2=600;  b2=500; 
+ a3=500;  b3=400; 
+//smallball
+ a4=700;  b4=100; 
+ a5=890;  b5=100; 
+  }
+  }
+ // diwar 4
+ if((a+17>944 && a-17<964) && b<500)
+   {   context.fillStyle = "rgba(0,250 , 250, 0.2)";
+  context.fillRect(0, 0, 1180, 600);
+
+context.font = '20px _sans';
+context.fillText ("     Press 'spacebar' to restart the game     ", 430,300 );
+  
+da1=da2=da3=da4=da5=0;db1=db2=db3=db4=db5=0;dx=0;dy=0;
+
+if (keyPressList[32]==true)
+   {
+   
+   dx=7;dy=7; a=30;b=580;r=15;
+da1=-7; db1=-6;
+
+//mediam ball
+
+ da2=6; db2=8;
+
+da3=-7; db3=-9;
+
+
+
+//smallball
+
+ da4=-9; db4=-7;
+ da5=8; db5=9;
+  
+  a1=100; b1=100; //mediam ball
+ a2=600;  b2=500; 
+ a3=500;  b3=400; 
+//smallball
+ a4=700;  b4=100; 
+ a5=890;  b5=100;  
+  }
+  }
+  
+   //diwar 5
+  if((b+17>200 && b-17<220) && a>1020)
+  {   context.fillStyle = "rgba(0,250 , 250, 0.2)";
+  context.fillRect(0, 0, 1180, 600);
+  
+  context.font = '40px _sans';
+context.textBaseline = 'top';
+context.fillText ("Oops....  you collied with wall..      ", 280,200 );
+context.font = '20px _sans';
+context.fillText ("     Press 'spacebar' to restart the game     ", 430,300 );
+da1=da2=da3=da4=da5=0;db1=db2=db3=db4=db5=0;dx=0;dy=0;
+
+if (keyPressList[32]==true)
+   {
+   
+   dx=7;dy=7; a=30;b=580;r=15;
+da1=-7; db1=-6;
+
+//mediam ball
+
+ da2=6; db2=8;
+
+ da3=-7; db3=-9;
+
+
+
+//smallball
+
+ da4=-9; db4=-7;
+ da5=8; db5=9;
+ 
+  a1=100; b1=100; //mediam ball
+ a2=600;  b2=500; 
+ a3=500;  b3=400; 
+//smallball
+ a4=700;  b4=100; 
+ a5=890;  b5=100; 
+   
+  }
+  }
+  
+  
+   //diwar 6
+  if((a+17>472 && a-17<692) && (b+17>500 && b-17<520))
+  {   context.fillStyle = "rgba(0,250 , 250, 0.2)";
+  context.fillRect(0, 0, 1180, 600);
+  
+  context.font = '40px _sans';
+context.textBaseline = 'top';
+context.fillText ("Oops....  you collied with wall..      ", 280,200 );
+context.font = '20px _sans';
+context.fillText ("     Press 'spacebar' to restart the game     ", 430,300 );
+da1=da2=da3=da4=da5=0;db1=db2=db3=db4=db5=0;dx=0;dy=0;
+
+if (keyPressList[32]==true)
+   {
+   
+   dx=7;dy=7; a=30;b=580;r=15;
+da1=-7; db1=-6;
+
+//mediam ball
+
+da2=6; db2=8;
+
+ da3=-7; db3=-9;
+
+
+
+//smallball
+
+ da4=-9; db4=-7;
+ da5=8; db5=9;
+ 
+  a1=100; b1=100; //mediam ball
+ a2=600;  b2=500; 
+ a3=500;  b3=400; 
+//smallball
+ a4=700;  b4=100; 
+ a5=890;  b5=100; 
+   
+  }
+  } 
+	
+	
+	 //diwar 7
+  if((a+17>630 && a-17<808) && (b+17>100 && b-17<120))
+  {   context.fillStyle = "rgba(0,250 , 250, 0.2)";
+  context.fillRect(0, 0, 1180, 600);
+  
+  context.font = '40px _sans';
+context.textBaseline = 'top';
+context.fillText ("Oops....  you collied with wall..      ", 280,200 );
+context.font = '20px _sans';
+context.fillText ("     Press 'spacebar' to restart the game     ", 430,300 );
+da1=da2=da3=da4=da5=0;db1=db2=db3=db4=db5=0;dx=0;dy=0;
+
+if (keyPressList[32]==true)
+   {
+   
+   dx=7;dy=7; a=30;b=580;r=15;
+da1=-7; db1=-6;
+
+//mediam ball
+
+da2=6; db2=8;
+
+ da3=-7; db3=-9;
+
+
+
+//smallball
+
+ da4=-9; db4=-7;
+ da5=8; db5=9;
+ 
+  a1=100; b1=100; //mediam ball
+ a2=600;  b2=500; 
+ a3=500;  b3=400; 
+//smallball
+ a4=700;  b4=100; 
+ a5=890;  b5=100; 
+   
+  }
+  }
+  
+
+  
+ 
+	
+	// treasure
+	var m16=a-a6;
+var  n16=b-b6;
+var  o16=m16*m16;
+ var p16=n16*n16;
+ var r16=o16+p16;
+  
+if (r16<=1000 && (a!=a6 && b!=b6))
+{  
+   a1=a2=a3=a4=a5=b1=b2=b3=b4=b5=1000;
+	dx=1180;dy=580;
+
+  context.fillStyle = "rgba(250,0 , 250, 0.4)";
+  context.fillRect(0, 0, 1180, 600);
+  
+  context.font = '40px _sans';
+context.textBaseline = 'top';
+context.fillText ("Congratulations....you won     ", 380,200 );
+context.font = '20px _sans';
+context.fillText ("     Press 'spacebar' for next level     ", 430,500 );
+
+if (keyPressList[32]==true) 
+{
+
+dx=7;dy=7;
+a=30;b=580;
+
+ r=15;
+a1=100; b1=100; 
+da1=da1+4; db1=db1+4;
+
+//mediam ball
+
+ a2=300;  b2=500;  
+ da2=da2+4; db2=db2+4;
+
+a3=500;  b3=300;  
+da3=da3+4; db3=db3+4;
+
+
+
+//smallball
+
+a4=700;  b4=100;  da4=da4+4; db4=db4+4;
+ a5=890;  b5=100;  da5=da5+4; db5=db5+4;
+
+
+} 
+
+  }
+ 
+	
+	}
+	
+function cleanupStaleResources() {
+
+        for (i=0; i < staleResources.length; ++i) {
+
+          for (j=0; j < allShapes.length; ++j) {
+
+            if (staleResources[i] == allShapes[j]) {
+
+              allShapes.splice(j, 1);
+
+            }
+
+          }
+
+        }
+
+        staleResources = [];
+
+      }
+
+ 
+
+ 
+
+   /* Rectangle object */
+
+      var RotatingRectangle = function(opts){
+
+        var rotationState = 0;
+
+        var active = true;
+
+ 
+
+        if (opts.falling) {
+
+          var fallingSpeed = Math.ceil(Math.random() * 5);
+
+          opts.y = -opts.height
+
+        }
+
+    
+
+ 
+
+        this.draw = function(context){
+
+ 
+
+          if (!active)
+
+            return;
+
+ 
+
+          if (opts.direction)
+
+            rotationState += opts.rotationSpeed;
+
+          else 
+
+            rotationState -= opts.rotationSpeed;
+
+          
+
+          if (opts.falling)
+
+            opts.y += fallingSpeed;
+
+ 
+
+          context.save();
+
+          context.translate(opts.x+(opts.width/2), opts.y+(opts.height/2));
+
+          context.rotate(rotationState);
+
+          context.fillStyle = opts.fillColor;
+
+		  var m =0-(opts.width/2);var n=0-(opts.height/2);
+
+          context.fillRect(m, n, opts.width, opts.height);
+
+          context.restore();
+
+ 
+
+          if (opts.y > CANVAS.height) {
+
+            active = false;
+
+            staleResources.push(this);
+
+            allShapes.push(createRectangle());
+
+          }
+
+ 
+
+        }
+
+      }
+
+ 
+
+      function generateShapes(count){
+
+        var allShapes = [];
+
+        for (i=0; i < count; ++i) {
+
+          allShapes.push(createRectangle()); 
+
+        }
+
+        return allShapes;
+
+      }
+
+ 
+
+      function createRectangle(){
+
+        var red = Math.floor(Math.random() * 256);
+
+        var green = Math.floor(Math.random() * 256);
+
+        var blue = Math.floor(Math.random() * 256);
+
+        var opacity = Math.random();
+
+        var direction = Math.round(Math.random()) == 0 ? false : true
+
+        return new RotatingRectangle({
+
+          x: Math.floor(Math.random() * CANVAS.width), 
+
+          y: Math.floor(Math.random() * CANVAS.height), 
+
+          width: 16, 
+
+          height: 16, 
+
+          falling: FALLING,
+
+          rotationSpeed: Math.random()*.10,
+
+          fillColor: "rgba("+red+", "+green+", "+blue+", "+opacity+")", 
+
+          direction: direction
+
+        });
+
+      }
+
+ 
+
+      var allShapes = generateShapes(NUMBER_OF_RECTANGLES);
+
+      var staleResources = [];
+
+
+
+const FRAME_RATE = 40;
+
+var intervalTime = 1000/FRAME_RATE;
+
+setInterval(drawScreen, intervalTime );
+
+
+
+//key event initializer
+
+document.onkeydown = function(e){
+
+e = e?e:window.event;
+
+keyPressList[e.keyCode] = true;
+
+}
+
+document.onkeyup = function(e){
+
+e = e?e:window.event;
+
+keyPressList[e.keyCode] = false;
+
+}
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div style="position: absolute; top: 50px; left: 50px;">
+
+<canvas id="canvas" width="1180" height="600">
+
+Your browser does not support HTML5 Canvas.
+
+</canvas>
+
+</div>
+
+</body>
+
+</html>
